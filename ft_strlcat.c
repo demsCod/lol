@@ -1,6 +1,7 @@
 
 #include <stddef.h>
 #include "libft.h"
+#include <stdio.h>
 /*EXAMPLES
            int main(void) {
                char dest[20] = "Hello, ";
@@ -19,8 +20,8 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	sizedest;
 	size_t	sizesrc;
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	sizedest = ft_strlen(dest);
 	sizesrc = ft_strlen(src);
@@ -42,3 +43,13 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	dest[i] = '\0';
 	return(sizedest + sizesrc);
 }
+/* int main(void)
+{
+               char dest[20] = "Hello, ";
+               char *src = "world!";
+               size_t result = ft_strlcat(dest, src, sizeof(dest));
+
+               printf("Result: %zu\n", result);
+               printf("Concatenated string: %s\n", dest);
+               return 0;
+}*/

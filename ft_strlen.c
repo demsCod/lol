@@ -9,13 +9,14 @@
 /*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include <stddef.h>
+
 size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return ((size_t)i);
+	return (i);
 }

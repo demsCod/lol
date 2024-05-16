@@ -10,6 +10,7 @@
 /*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stddef.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -19,7 +20,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return (s + i)
+			return ((char	*)s + i);
 		i++;
 	}
 	return (NULL);

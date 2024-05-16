@@ -12,48 +12,69 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "libft.h"
+
 void	*ft_memset(void *pointer, int value, size_t count)
 {
 	unsigned char	*valuex;
-	int	i;
+	size_t	i;
 
 	i = 0;
 	valuex = pointer;
-	while (count--)
+	while (count > 0)
 	{
 		valuex[i] = value;
 		i++;
+        count --;
 	}
-	return (pointer);
-}
-/*
-static void		check_memset(void *mem, int c, int n, int mem_size)
-{
-	if (mem != ft_memset(mem, c, n))
-		write(1, "mem's adress was not returned\n", 30);
-	write(1, mem, mem_size);
-	free(mem);
+    return(valuex);
 }
 
-int				main(int argc, const char *argv[])
-{
-	void	*mem;
-	int		arg;
-	int		mem_size;
+/*void test_memset(void *ptr, int value, size_t num) {
+    memset(ptr, value, num);
+    ft_memset(ptr, value, num);
 
-	alarm(5);
-	mem_size = 15;
-	if (!(mem = malloc(sizeof(*mem) * mem_size)) || argc == 1)
-		return (0);
-	memset(mem, 'j', mem_size);
-	if ((arg = atoi(argv[1])) == 1)
-		check_memset(mem, 'c', 5, mem_size);
-	else if (arg == 2)
-		check_memset(mem, 'c', 14, mem_size);
-	else if (arg == 3)
-		check_memset(mem, '\n', 6, mem_size);
-	else if (arg == 4)
-		check_memset(mem, '\0', 1, mem_size);
-	return (0);
+    // Comparaison des zones de mémoire modifiées
+    if (memcmp(ptr, ptr + num, num) == 0) {
+        printf("Test réussi: Les zones de mémoire ont été remplies avec la même valeur.\n");
+    } else {
+        printf("Test échoué: Les zones de mémoire remplies avec des valeurs différentes.\n");
+    }
+}
+
+int main() {
+    // Test 1: Remplissage d'une zone de mémoire avec une valeur spécifique
+    printf("Test 1: Remplissage d'une zone de mémoire avec une valeur spécifique\n");
+    char str1[20] = "Hello, world!";
+    test_memset(str1, 'A', 10);
+    printf("Résultat de memset: %s\n", str1);
+    printf("Résultat de ft_memset: %s\n", str1);
+
+    // Test 2: Remplissage d'une zone de mémoire avec la valeur 0
+    printf("\nTest 2: Remplissage d'une zone de mémoire avec la valeur 0\n");
+    int arr[5] = {1, 2, 3, 4, 5};
+    test_memset(arr, 0, sizeof(arr));
+    printf("Résultat de memset: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    printf("Résultat de ft_memset: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    // Test 3: Remplissage d'une zone de mémoire dans une structure
+    printf("\nTest 3: Remplissage d'une zone de mémoire dans une structure\n");
+    struct {
+        int a;
+        char b[10];
+    } s;
+    test_memset(&s, 'B', sizeof(s));
+    printf("Résultat de memset: %d, %s\n", s.a, s.b);
+    printf("Résultat de ft_memset: %d, %s\n", s.a, s.b);
+
+    return 0;
 }*/
