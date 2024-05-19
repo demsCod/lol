@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filename.c                                         :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yourname <yourname@student.42.fr>            +#+  +:+       +#+      */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: year/month/day hour:min:sec by yourname   #+#    #+#            */
-/*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
+/*   Created: 2024/05/17 15:47:49 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 16:09:59 by mdembele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 255)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

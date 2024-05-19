@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filename.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yourname <yourname@student.42.fr>            +#+  +:+       +#+      */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: year/month/day hour:min:sec by yourname   #+#    #+#            */
-/*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
+/*   Created: 2024/05/17 15:40:53 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 15:40:56 by mdembele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stddef.h>
 
 size_t	ft_strlen(const char *str)

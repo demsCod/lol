@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filename.c                                         :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yourname <yourname@student.42.fr>            +#+  +:+       +#+      */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: year/month/day hour:min:sec by yourname   #+#    #+#            */
-/*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
+/*   Created: 2024/05/17 15:48:01 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 15:48:02 by mdembele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(int c)
 {
-	if (!(c >= '0' && c <= '9')
-		&& (!(c >= 'a' && c <= 'z'))
-		&& (!(c >= 'A' && c <= 'Z')))
+	if (!(c >= '0' && c <= '9') && (!(c >= 'a' && c <= 'z')) && (!(c >= 'A'
+				&& c <= 'Z')))
 		return (0);
 	else
 		return (1);

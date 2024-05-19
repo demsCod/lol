@@ -1,21 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 15:41:13 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 16:22:09 by mdembele         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
-#include <stdio.h>
-/*EXAMPLES
-           int main(void) {
-               char dest[20] = "Hello, ";
-               const char *src = "world!";
-               size_t result = strlcat(dest, src, sizeof(dest));
+#include <stddef.h>
 
-               printf("Result: %zu\n", result);
-               printf("Concatenated string: %s\n", dest);
-               return 0;
-           }
-     Output:
-           Result: 13
-           Concatenated string: Hello, world!
- */
 size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	sizedest;
@@ -25,31 +22,18 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 
 	sizedest = ft_strlen(dest);
 	sizesrc = ft_strlen(src);
-
-	if(size <= sizedest)
-		return(size + sizesrc);
+	if (size <= sizedest)
+		return (size + sizesrc);
 	i = 0;
 	j = 0;
-	while(dest[i])
-	{
+	while (dest[i])
 		i++;
-	}
-	while(i < (size - 1) && src [j])
+	while (i < (size - 1) && src[j])
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
 	dest[i] = '\0';
-	return(sizedest + sizesrc);
+	return (sizedest + sizesrc);
 }
-/* int main(void)
-{
-               char dest[20] = "Hello, ";
-               char *src = "world!";
-               size_t result = ft_strlcat(dest, src, sizeof(dest));
-
-               printf("Result: %zu\n", result);
-               printf("Concatenated string: %s\n", dest);
-               return 0;
-}*/

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filename.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yourname <yourname@student.42.fr>            +#+  +:+       +#+      */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: year/month/day hour:min:sec by yourname   #+#    #+#            */
-/*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
+/*   Created: 2024/05/17 16:54:27 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 17:44:48 by mdembele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 #include <stddef.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
-/*The  memmove()  function  copies n bytes from memory area src to memory
-       area dest.  The memory areas may overlap: copying takes place as though
-       the  bytes in src are first copied into a temporary array that does not
-       overlap src or dest, and the bytes are then copied from  the  temporary
-       array to dest.
-*/
 void	*ft_memmove(void *destination, const void *source, size_t size)
 {
-	const unsigned char 	*tmp;
-	
-	tmp = source;
+	unsigned char	tmp[size];
+
+	ft_memcpy(tmp, source, size);
 	ft_memcpy(destination, tmp, size);
-	return(destination);
+	return (destination);
 }
+
+/*int main(void)
+{
+	char	src[] = "lorem ipsum dolor sit amet";
+	char	*dest;
+
+	dest = src + 1;
+	if (dest != ft_memmove(dest, src, 8))
+			write(1, "dest's adress was not returned\n", 31);
+		write(1, dest, 22);
+}
+*/

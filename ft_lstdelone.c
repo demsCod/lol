@@ -1,20 +1,21 @@
-/*  lst: L’élément à free
-    del: L’adresse de la fonction permettant de
-    supprimer le contenu de l’élément.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 15:46:33 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 16:03:07 by mdembele         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    Fonctions externes autorisées
-    free
-
-Libère la mémoire de l’élément passé en argument en
-utilisant la fonction ’del’ puis avec free(3). La
-mémoire de ’next’ ne doit pas être free.*/
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-void    ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if(lst)
-        del(lst->content);
-    free(lst);
+	if (lst)
+		del(lst->content);
+	free(lst);
 }
-

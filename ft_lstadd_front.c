@@ -1,35 +1,22 @@
-#include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-void ft_lstadd_front(t_list **lst, t_list *new)
-{
-    if(*lst == NULL)
-        new = *lst;
-    new->next = (*lst);
-}
-/*int main(int ac, char **av)
-{
-    if(ac > 1)
-    {
-        int i;
-        int size;
-        i = 0;
-        t_list *list[i];
-        while(av[i])
-        {
-            list[i] = ft_lstnew(av[i]);
-            if(i > 0)
-                ft_lstadd_front(&list[i -1] , list[i]);
-            i++;
-        }
-        size = ft_lstsize(list[i - 1]);
-        printf("%d\n" , size);
-    }
-    
-}*/
-/*Ajoute l’élément ’new’ au début de la liste*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/17 15:46:59 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 16:06:48 by mdembele         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*lst: L’adresse du pointeur vers le premier élément
-de la liste.
-new: L’adresse du pointeur vers l’élément à
-rajouter à la liste.*/
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (*lst == NULL)
+		new = *lst;
+	new->next = (*lst);
+}

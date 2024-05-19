@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filename.c                                         :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yourname <yourname@student.42.fr>            +#+  +:+       +#+      */
+/*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: year/month/day hour:min:sec by yourname   #+#    #+#            */
-/*   Updated: year/month/day hour:min:sec by yourname  ###   ########.fr      */
+/*   Created: 2024/05/17 15:47:41 by mdembele          #+#    #+#             */
+/*   Updated: 2024/05/17 15:47:43 by mdembele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
