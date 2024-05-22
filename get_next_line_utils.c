@@ -63,7 +63,7 @@ char	*ft_cpynl(char *dest, char *src)
 
 size_t	ft_strlen(char *dest)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (dest[i])
