@@ -6,23 +6,25 @@
 /*   By: mdembele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 20:00:31 by mdembele          #+#    #+#             */
-/*   Updated: 2024/05/22 20:44:44 by mdembele         ###   ########.fr       */
+/*   Updated: 2024/05/24 21:00:29 by mdembele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+
 #include <fcntl.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "get_next_line.h"
 
-/*ssize_t read(int fd, void *buf, size_t count)*/
 int	ft_checknl(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
+	if (*str)
+		return(0);
 	while (str[i])
 	{
 		if (str[i] == '\n')
@@ -34,41 +36,49 @@ int	ft_checknl(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	stash[1024];
-	char		buff[1024];
+	static char	stash[1000000];
+	char		*buff;
 	char		*line;
 	int			check;
 
-	check = 0;
+	check = 1;
 	if (fd == -1)												/* si le fd est incorecte on retourne null*/
 		return (NULL);
-	line = malloc(sizeof(char) * 1024);     /*malloc de la variable qu'on va renvoyer*/
-	*line = '\0';
-	if (line == NULL)                      /*si le malloc echoue on renvoie null*/
+	buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	*buff = '\0';
+	if(buff == NULL)
 		return (NULL);
-	if (ft_strlen(stash) > 0)              /*si stash n'est pas vide on netoie jusqu'au nl*/
+	if ((ft_strlen(stash)) > 0)
 		ft_clean(stash);
-	while (check >= 0  && ft_checknl(stash) != 1)
+	while (check > 0  && ft_checknl(stash) != 1)
 	{
 		check = read(fd, buff, BUFFER_SIZE);
 		if (check == -1)
-			return (free(line), NULL);
+			return (free(buff), NULL);
+
 		buff[check] = '\0';
 		ft_strcat(stash, buff);
 		if (*stash == '\0')
 			break ;
 	}
-	if (check == 0 && ft_strlen(buff) == 0)
-		return (free(line), NULL);
+	line = malloc(sizeof(char) * ft_strlen(stash) + 1);     /*malloc de la variable qu'on va renvoyer*/
+	*line = '\0';
+	if (line == NULL)                      /*si le malloc echoue on renvoie. null*/
+		return (free(buff), NULL);
+	if (check == 0 && ft_strlen(stash) == 0)
+		return (free(line),free(buff), NULL);
 	ft_cpynl(line, stash);
-	return (line);
+	return (free(buff), line);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	int		fd;
 	char	*line;
 
+	fd = open("GNL.txt", O_RDWR);
+	ft_putstr_fd("012345678901234567890123456789\n0", fd);
+	close(fd);
 	fd = open("GNL.txt", O_RDONLY);
 	line = get_next_line(fd);
 	printf("%s", line);

@@ -1,9 +1,19 @@
 #include <stddef.h>
 
-char	*ft_strcat(char *dest, char *src)
+size_t	ft_strlen(char *dest)
 {
 	size_t	i;
-	size_t	j;
+
+	i = 0;
+	while (dest[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	long long	i;
+	long long	j;
 
 	i = 0;
 	j = 0;
@@ -15,7 +25,6 @@ char	*ft_strcat(char *dest, char *src)
 		i++;
 		j++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 char	*ft_strcpy(char *dest, char *src)
@@ -50,23 +59,12 @@ char	*ft_cpynl(char *dest, char *src)
 	size_t	i;
 
 	i = 0;
-	while (src[i] && src[i] != '\n')
+	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\n';
-	i++;
 	dest[i] = '\0';
 	return (dest);
 }
 
-size_t	ft_strlen(char *dest)
-{
-	size_t	i;
-
-	i = 0;
-	while (dest[i])
-		i++;
-	return (i);
-}
